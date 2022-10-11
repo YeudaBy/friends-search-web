@@ -1,0 +1,239 @@
+$blue-base: #05AFF0;
+$red-base: #EF4D36;
+$yellow-base: #F3C839;
+
+@font-face {
+  font-family: "friends-font";
+  src: URL("/friends-font.TTF") format("truetype");
+}
+
+.header {
+  text-transform: capitalize;
+  font-family: "friends-font", sans-serif;
+  text-align: center;
+
+  span {
+    font-size: 3rem;
+    margin: 6px;
+    vertical-align: middle;
+  }
+
+  .blue {
+    color: $blue-base;
+  }
+
+  .red {
+    color: $red-base;
+  }
+
+  .yellow {
+    color: $yellow-base;
+  }
+
+}
+
+.sentence {
+  color: #ececec;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 3em;
+  min-height: 220px;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 1px;
+    background-color: #8c8c8c;
+    transition: width 0.3s ease-in-out;
+    margin: 1em auto auto;
+  }
+
+  &:hover {
+    &::after {
+      width: 80%;
+      transition: width 0.3s ease-in-out;
+    }
+  }
+
+  .sentenceDetails {
+    color: #bdbdbd;
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 0.5em;
+  }
+
+  .sentenceActions {
+    button {
+      background: none;
+      border: none;
+      color: #bdbdbd;
+      font-size: 1.2em;
+      margin: 0 0.5em;
+      cursor: pointer;
+      outline: none;
+      border-radius: 10px;
+      padding: 0.5em 1em 0.25em;
+      transition: all .3s ease-in-out;
+    }
+
+    button:last-child, button:first-child {
+      color: $blue-base;
+
+      &:hover {
+        box-shadow: $blue-base 0 0 0.5em;
+      }
+    }
+
+    .likeButton[aria-disabled="true"] {
+      color: $red-base;
+    }
+
+    .likeButton[aria-disabled="false"] {
+      &:hover {
+        box-shadow: $red-base 0 0 0.5em;
+      }
+    }
+
+    .shareButton {
+      color: $yellow-base;
+
+      &:hover {
+        box-shadow: $yellow-base 0 0 0.5em;
+      }
+    }
+
+    //button:hover {
+    //  box-shadow: gray 0 0 0.5em;
+    //}
+  }
+}
+
+.home {
+  min-height: calc(100vh - (2em * 2));
+  //background: linear-gradient(45deg, rgba(5, 175, 240, 0.16), rgba(239, 77, 54, 0.15), rgba(243, 200, 57, 0.15)) fixed;
+  position: relative;
+  top: 0;
+  margin: 2em;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.17);
+  border-radius: 1.25rem;
+}
+
+.results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.searchForm {
+  width: 100%;
+  max-width: 600px;
+  margin: 2em auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+    svg {
+      transition: all .3s;
+    }
+  }
+
+  input {
+    width: 60%;
+    padding: 0.5em;
+    border: 2px solid $blue-base;
+    border-radius: 0.5em;
+    outline: none;
+    text-align: center;
+    transition: all .3s;
+
+    &:focus {
+      border: 2px solid $red-base;
+    }
+  }
+}
+
+.noResults {
+  text-align: center;
+  color: $red-base;
+  font-size: 1.2em;
+  margin: 6em 0;
+  line-height: 2.4;
+}
+
+
+.sentenceSkeleton {
+  $color1: rgba(236, 236, 236, 0.2);
+  $color2: rgba(236, 236, 236, 0.4);
+  min-height: 220px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(to right, $color1 0%, $color2 50%, $color1 100%);
+    background-size: 200% 100%;
+    animation: skeletonAnim 1.5s infinite linear forwards alternate;    margin: 1em auto auto;
+  }
+
+  p {
+    width: 70%;
+    height: 40px;
+    background: linear-gradient(to right, $color1 0%, $color2 50%, $color1 100%);
+    background-size: 200% 100%;
+    animation: skeletonAnim 1.5s infinite linear forwards alternate;
+  }
+
+  .sentenceDetailsSkeleton {
+    width: 60%;
+    height: 30px;
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+
+    span {
+      width: 30%;
+      height: 30px;
+      background: linear-gradient(to right, $color1 0%, $color2 50%, $color1 100%);
+      background-size: 200% 100%;
+      animation: skeletonAnim 1.5s infinite linear forwards alternate;    }
+  }
+
+  .sentenceActions {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 2em;
+
+    svg {
+      color: $color1;
+    }
+  }
+}
+
+@keyframes skeletonAnim {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.error {
+  width: 100%;
+  text-align: center;
+}

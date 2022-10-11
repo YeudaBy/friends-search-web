@@ -1,0 +1,8 @@
+.sentence-exit {
+    transform: scale(0.9);
+    opacity: 0.3;
+}
+
+.sentence {
+    transition: all .2s linear;
+}
