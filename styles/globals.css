@@ -44,9 +44,9 @@ a {
         color: black;
         background: linear-gradient(
                 45deg,
-                rgba(5, 175, 240, 0.14),
-                rgba(239, 77, 54, 0.14),
-                rgba(243, 200, 57, 0.14)
+                rgb(225, 245, 255),
+                rgb(255, 232, 228),
+                rgb(255, 241, 214)
         ) fixed;
     }
 }
