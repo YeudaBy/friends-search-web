@@ -6,3 +6,18 @@
 .sentence {
     transition: all .2s linear;
 }
+
+[data-scroll] {
+    transition: opacity 1s, transform 1s;
+
+}
+
+[data-scroll="in"] {
+    opacity: 1;
+    transform: rotate3d(0, 0, 0, 0) scale(1);
+}
+
+[data-scroll="out"] {
+    opacity: 0;
+    transform: rotate3d(1, 1, 1, 10deg) scale(0.7);
+}

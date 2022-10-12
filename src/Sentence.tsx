@@ -5,6 +5,7 @@ import {FaAngleLeft, FaAngleRight, FaHeart, FaShare} from "react-icons/fa";
 import ShareButton from "./Share";
 
 
+
 export function Sentence({sentence: sentenceProps}: { sentence: Sentence }) {
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const [sentence, setSentence] = useState<Sentence>();

@@ -7,27 +7,71 @@ $yellow-base: #F3C839;
   src: URL("/friends-font.TTF") format("truetype");
 }
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .header {
-  text-transform: capitalize;
-  font-family: "friends-font", sans-serif;
   text-align: center;
+  animation: fadeInUp .5s ease-in-out;
 
-  span {
-    font-size: 3rem;
-    margin: 6px;
-    vertical-align: middle;
+  h4 {
+    font-style: italic;
   }
 
-  .blue {
-    color: $blue-base;
+  h5 {
+    opacity: 0.8;
   }
 
-  .red {
-    color: $red-base;
-  }
+  h2 {
+    text-transform: uppercase;
+    font-family: "friends-font", sans-serif;
+    text-align: center;
 
-  .yellow {
-    color: $yellow-base;
+    span {
+      font-size: 3rem;
+      margin: 6px;
+      vertical-align: middle;
+    }
+
+    .blue {
+      color: $blue-base;
+    }
+
+    .red {
+      color: $red-base;
+    }
+
+    .yellow {
+      color: $yellow-base;
+    }
   }
 
 }
@@ -35,9 +79,14 @@ $yellow-base: #F3C839;
 .sentence {
   color: #ececec;
   text-align: center;
-  transition: all 0.3s ease-in-out;
   margin-bottom: 3em;
   min-height: 220px;
+
+  @media (prefers-color-scheme: light) {
+    color: #1f1f1f;
+  }
+
+  animation: fadeIn .5s ease-in-out;
 
   &::after {
     content: "";
@@ -61,6 +110,11 @@ $yellow-base: #F3C839;
     text-align: center;
     font-size: 0.8em;
     margin-top: 0.5em;
+
+    @media (prefers-color-scheme: light) {
+      color: #414141;
+    }
+
   }
 
   .sentenceActions {
@@ -90,6 +144,10 @@ $yellow-base: #F3C839;
     }
 
     .likeButton[aria-disabled="false"] {
+      @media (prefers-color-scheme: light) {
+        color: #414141;
+      }
+
       &:hover {
         box-shadow: $red-base 0 0 0.5em;
       }
@@ -115,7 +173,12 @@ $yellow-base: #F3C839;
   position: relative;
   top: 0;
   margin: 2em;
-  backdrop-filter: blur(5px);
+
+  @media screen {
+    @media (max-width: 768px) {
+      margin: 1em;
+    }
+  }
   background: rgba(0, 0, 0, 0.17);
   border-radius: 1.25rem;
 }
@@ -123,13 +186,17 @@ $yellow-base: #F3C839;
 .results {
   list-style: none;
   margin: 0;
-  padding: 0;
+  transform-style: preserve-3d;
+
+  padding: 0 0 110px;
 }
 
 .searchForm {
   width: 100%;
   max-width: 600px;
   margin: 2em auto;
+
+  animation: fadeIn .5s ease-in-out;
 
   display: flex;
   align-items: center;
@@ -263,6 +330,80 @@ $yellow-base: #F3C839;
     color: $blue-base;
     text-decoration: underline solid;
     font-size: 1.1em;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      color: $red-base;
+    }
+  }
+}
+
+.footer {
+  width: 90%;
+  text-align: center;
+  margin: 2em auto;
+  color: #bdbdbd;
+  font-size: 0.8em;
+
+  animation: fadeInDown .5s ease-in-out;
+
+  @media (prefers-color-scheme: dark) {
+    background: linear-gradient(
+                    45deg,
+                    rgba(5, 175, 240, 0.14),
+                    rgba(239, 77, 54, 0.14),
+                    rgba(243, 200, 57, 0.14)
+    ) fixed;
+  }
+
+  @media (prefers-color-scheme: light) {
+    background: linear-gradient(
+                    45deg,
+                    rgba(5, 175, 240, 0.14),
+                    rgba(239, 77, 54, 0.14),
+                    rgba(243, 200, 57, 0.14)
+    ) fixed;
+  }
+
+  backdrop-filter: blur(5px);
+  border-radius: 1.25rem;
+
+  @media (prefers-color-scheme: light) {
+    color: #414141;
+  }
+
+  height: 100px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5em;
+  row-gap: 0;
+
+  max-width: 600px;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+
+  p:first-child {
+    grid-column: 1 / 4;
+  }
+
+  p:not(:first-child) > a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  a {
+    color: inherit;
+
+    text-decoration: none;
     transition: all .3s ease-in-out;
 
     &:hover {
