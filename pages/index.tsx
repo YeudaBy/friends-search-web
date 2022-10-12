@@ -29,6 +29,7 @@ const Home: NextPage = () => {
         if (typeof event !== "string") {
             event.preventDefault();
         }
+
         setResults(undefined);
         Api.search(query).then(setResults).catch(e => {
             console.error(e);
@@ -51,6 +52,13 @@ const Home: NextPage = () => {
     }, [router.query.q, router.query.s]);
 
     return (<div className={styles.home}>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5D9W5G5XLH"></Script>
+        <Script id={"gtag"}>
+            {`window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-5D9W5G5XLH');`}
+        </Script>
         <Script src="https://cdn.jsdelivr.net/npm/scroll-out/dist/scroll-out.min.js"/>
         <Script strategy="lazyOnload" id={"scroll-out"}>
             {`ScrollOut({})`}
