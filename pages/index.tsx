@@ -1,7 +1,7 @@
 import type {NextPage} from 'next'
 import {FormEvent, useCallback, useEffect, useState} from "react";
 import {Api, Sentence as TSentence} from "../src/Api";
-import {Sentence} from "../src/Sentence";
+import {Sentence, SentenceSkeleton} from "../src/Sentence";
 import styles from '../styles/Main.module.scss'
 import {useRouter} from "next/router";
 // @ts-ignore
@@ -16,6 +16,7 @@ import {Credit} from "../src/Credit";
 const Home: NextPage = () => {
     const [query, setQuery] = useState<string>("");
     const [results, setResults] = useState<TSentence[]>();
+    const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<boolean>(false);
     const router = useRouter();
 
@@ -24,6 +25,7 @@ const Home: NextPage = () => {
     })
 
     const search = useCallback((event: FormEvent<HTMLFormElement> | string) => {
+        setLoading(true);
         if (typeof event !== "string") {
             event.preventDefault();
         }
@@ -31,7 +33,7 @@ const Home: NextPage = () => {
         Api.search(query).then(setResults).catch(e => {
             console.error(e);
             setError(true);
-        });
+        }).finally(() => setLoading(false));
     }, [query]);
 
 
@@ -60,6 +62,8 @@ const Home: NextPage = () => {
 
         {error && !results && <div className={styles.error}>Some error was found</div>}
 
+        {loading && !results && [...Array(10)].map((_, i) => <SentenceSkeleton key={i}/>)}
+
         {!!results ? Array.isArray(results) && results.length > 0 ?
             <ul className={styles.results}>
                 {results.map(sentence => <li key={sentence.id} data-scroll={""}>
@@ -71,7 +75,7 @@ const Home: NextPage = () => {
                 {"C'mon, let's find something!"}
             </p> : null}
 
-        <Credit />
+        <Credit/>
     </div>)
 }
 

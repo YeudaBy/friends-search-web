@@ -83,7 +83,7 @@ function convertToRealTime(time: string) {
 }
 
 
-function SentenceSkeleton() {
+export function SentenceSkeleton() {
     return <div className={styles.sentenceSkeleton}>
         <p className={styles.sentenceContentSkeleton}></p>
 
