@@ -51,4 +51,9 @@ export class Api {
     static like(id: number) {
         fetch(BASE_URL + "sentence/" + id + "/like", {method: "POST"})
     }
+
+    static async getMostLiked(): Promise<Sentence[]> {
+        const response = await fetch(BASE_URL + "sentence/likes")
+        return await response.json() as Sentence[]
+    }
 }

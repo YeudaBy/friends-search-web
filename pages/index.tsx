@@ -11,6 +11,7 @@ import {Header} from "../src/Header";
 import {Search} from "../src/Search";
 import Script from "next/script";
 import {Credit} from "../src/Credit";
+import {MostLiked} from "../src/MostLiked";
 
 
 const Home: NextPage = () => {
@@ -81,7 +82,7 @@ const Home: NextPage = () => {
                 {"I've got nothing for you, sorry :("}
                 <br/>
                 {"C'mon, let's find something!"}
-            </p> : null}
+            </p> : <MostLiked />}
 
         <Credit/>
     </div>)
