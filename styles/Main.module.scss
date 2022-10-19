@@ -192,7 +192,7 @@ $yellow-base: #F3C839;
 }
 
 .searchForm {
-  width: 100%;
+  width: 60%;
   max-width: 600px;
   margin: 2em auto;
 
@@ -202,11 +202,16 @@ $yellow-base: #F3C839;
   align-items: center;
   justify-content: center;
 
+  position: relative;
+
   button {
     background: none;
     border: none;
     cursor: pointer;
     outline: none;
+
+    position: absolute;
+    right: 5px;
 
     svg {
       transition: all .3s;
@@ -214,13 +219,14 @@ $yellow-base: #F3C839;
   }
 
   input {
-    width: 60%;
-    padding: 0.5em;
+    background: wheat;
+    width: 100%;
+    padding: 0.5em 35px 0.5em 0.5em;
     border: 2px solid $blue-base;
     outline: none;
     text-align: center;
     transition: all .3s;
-    background: transparent;
+    //background: transparent;
     border-radius: 1.25rem;
     font-weight: bold;
 
