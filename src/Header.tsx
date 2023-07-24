@@ -11,6 +11,12 @@ export function Header() {
                 n<span className={styles.yellow}>&middot;</span>
                 d<span className={styles.blue}>&middot;</span>
                 s
+                {/*<span style={{*/}
+                {/*    width: "2rem",*/}
+                {/*    height: "1px",*/}
+                {/*    display: "inline-block",*/}
+                {/*}}/>*/}
+                <span>-</span>
                 search</h2>
 
             <h4>
