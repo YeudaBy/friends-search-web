@@ -24,7 +24,7 @@ function ShareButton({sentence}: { sentence?: TSentence }) {
             className={styles.shareButton}
             onClick={share}
             aria-label={"Share button"}>
-            <FaShare/>
+            <FaShare stroke={"black"}/>
         </button>
     )
 }

@@ -5,25 +5,25 @@ export function Credit() {
     return (
         <footer className={styles.footer}>
             <p>
-                Created by <a href="https://yeudaby.com" target="_blank" rel="noreferrer">Yeuda By</a>
+                Created by <a href="https://yeudaby.com" target="_blank" rel="noreferrer">Yeuda By</a> :)
             </p>
 
-            <p>
+            <p >
                 <a href="https://github.com/YeudaBy/Friends-Search" target="_blank" rel="noreferrer">
                     <FaGithub/>
                     Source code
                 </a>
             </p>
 
-            <p>
-                <a href="" target="_blank" rel="noreferrer">
+            <p className={styles.comingSoon}>
+                <a href="#" target="_blank" rel="noreferrer">
                     <FaCode/>
                     API
                 </a>
             </p>
 
-            <p>
-                <a href={""} target="_blank" rel="noreferrer">
+            <p className={styles.comingSoon}>
+                <a href={"#"} target="_blank" rel="noreferrer">
                     <FaTelegramPlane/>
                     Telegram Bot
                 </a>

@@ -1,6 +1,6 @@
 $blue-base: #05AFF0;
 $red-base: #EF4D36;
-$yellow-base: #F3C839;
+$yellow-base: #b49900;
 
 @font-face {
   font-family: "friends-font";
@@ -39,6 +39,7 @@ $yellow-base: #F3C839;
 }
 
 .header {
+  padding-top: 1em;
   text-align: center;
   animation: fadeInUp .5s ease-in-out;
 
@@ -155,6 +156,10 @@ $yellow-base: #F3C839;
 
     .shareButton {
       color: $yellow-base;
+
+      svg {
+        stroke: #1f1f1f;
+      }
 
       &:hover {
         box-shadow: $yellow-base 0 0 0.5em;
@@ -403,6 +408,9 @@ $yellow-base: #F3C839;
   right: 0;
   left: 0;
 
+  p {
+    position: relative;
+  }
 
   p:first-child {
     grid-column: 1 / 4;
@@ -414,6 +422,20 @@ $yellow-base: #F3C839;
     align-items: center;
     justify-content: center;
     gap: 0.5em;
+  }
+
+  .comingSoon::before {
+    content: "Coming soon";
+    position: absolute;
+    top: -2.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffd0d0;
+    color: #000000;
+    padding: 0.2em 0.5em;
+    border-radius: 0.5em;
+    font-size: 0.7em;
+    box-shadow: 0 0 0.5em #915353;
   }
 
   a {
