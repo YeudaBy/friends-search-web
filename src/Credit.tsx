@@ -9,7 +9,7 @@ export function Credit() {
             </p>
 
             <p >
-                <a href="https://github.com/YeudaBy/Friends-Search" target="_blank" rel="noreferrer">
+                <a href="https://github.com/YeudaBy/friends-search-web" target="_blank" rel="noreferrer">
                     <FaGithub/>
                     Source code
                 </a>
