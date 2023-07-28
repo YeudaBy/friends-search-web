@@ -186,6 +186,7 @@ $yellow-base: #b49900;
   }
   background: rgba(0, 0, 0, 0.17);
   border-radius: 1.25rem;
+  padding: 0 2rem;
 }
 
 .results {
@@ -425,9 +426,9 @@ $yellow-base: #b49900;
   }
 
   .comingSoon::before {
-    content: "Coming soon";
+    content: "SOON";
     position: absolute;
-    top: -2.5em;
+    top: -2em;
     left: 50%;
     transform: translateX(-50%);
     background: #ffd0d0;
